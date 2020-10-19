@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from recipe.models import Recipe
+from recipes.models import Recipe
 
 
 class Favorites(models.Model):

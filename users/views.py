@@ -1,25 +1,14 @@
 from django.views.generic import CreateView
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from .forms import CreationForm
 
 
 class SignUp(CreateView):
     form_class = CreationForm
-    success_url = "/"
+    success_url = "/accounts/login/"
     template_name = "signup.html"
 
 
-class SignIn(CreateView):
-    form_class = AuthForm
-    success_url = "/"
-    template_name = "signin.html"
-
-
-def reset_password():
-    pass
-
-
-def favorites():
-    pass
-
-
-def subscribers():
-    pass
+class 
