@@ -7,10 +7,9 @@
 {% endblock %}
 
 {% block content %}
-    {% load user_filters %}
+    {% load my_tags %}
     {% csrf_token %}
     <main class="main container">
-        {% load user_filters %}
         <div class="main__header">
             <h1 class="main__title">Войти на сайт</h1>
         </div>
