@@ -1,14 +1,10 @@
 from django.views.generic import CreateView
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from django.urls import reverse_lazy
 
 from .forms import CreationForm
 
 
 class SignUp(CreateView):
     form_class = CreationForm
-    success_url = "/accounts/login/"
+    success_url = reverse_lazy("login")
     template_name = "signup.html"
-
-
-class 

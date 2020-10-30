@@ -4,16 +4,16 @@ from django.contrib.auth.models import User
 from recipes.models import Recipe
 
 
-class Favorites(models.Model):
+class Favorite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
 
-class Shopping_List(models.Model):
+class Purchase(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
 
-class Follow(models.Model):
+class Subscribe(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="follower")
     following = models.ForeignKey(User, on_delete=models.CASCADE, related_name="following")
