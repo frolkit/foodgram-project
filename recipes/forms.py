@@ -1,4 +1,3 @@
-from django.db import models
 from django.forms import ModelForm
 
 from .models import Recipe
@@ -7,4 +6,4 @@ from .models import Recipe
 class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
-        fields = ['name', 'cooking_time', 'description', 'photo']
+        fields = ['title', 'cooking_time', 'description', 'photo']

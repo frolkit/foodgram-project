@@ -39,5 +39,9 @@
     <script type="text/javascript" src={% static "js/components/Header.js" %}></script>
 
     <script type="text/javascript" src={% static "js/api/Api.js" %}></script>
-    <script type="text/javascript" src={% static "Js/indexAuth.js" %}></script>
+    {% if user.is_authenticated %}
+        <script type="text/javascript" src={% static "js/indexAuth.js" %}></script>
+    {% else %}
+        <script type="text/javascript" src={% static "js/indexNotAuth.js" %}></script>
+    {% endif%}
 {% endblock %}

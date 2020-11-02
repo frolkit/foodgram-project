@@ -18,8 +18,8 @@
                 <div class="form__group">
                     <label for="{{ form.cooking_time.id_for_label }}" class="form__label">Название рецепта</label>
                     <div class="form__field-group">
-                        {{ form.name | addclass:"form__input" }}
-                        <span class="form__error">{{ form.name.errors }}</span>
+                        {{ form.title | addclass:"form__input" }}
+                        <span class="form__error">{{ form.title.errors }}</span>
                     </div>
                 </div>
                 
@@ -58,9 +58,9 @@
                         <div class="form__field-group-ingredientes-container">
                             {% for ingredient in ingredients %}
                                 <div class="form__field-item-ingredient" id="ing_{{ ingredient.id }}">
-                                    <span> {{ ingredient.ingredient.name }} {{ ingredient.number }}{{ ingredient.ingredient.dimension }}</span>
+                                    <span> {{ ingredient.ingredient.title }} {{ ingredient.number }}{{ ingredient.ingredient.dimension }}</span>
                                     <span class="form__field-item-delete"></span>
-                                    <input id="nameIngredient" name="nameIngredient" type="hidden" value="{{ ingredient.ingredient.name }}">
+                                    <input id="nameIngredient" name="nameIngredient" type="hidden" value="{{ ingredient.ingredient.title }}">
                                     <input id="valueIngredient" name="valueIngredient" type="hidden" value="{{ ingredient.number }}">
                                     <input id="unitsIngredient" name="unitsIngredient" type="hidden" value="{{ ingredient.ingredient.dimension }}">
                                 </div>
@@ -89,8 +89,7 @@
                 <div class="form__group">
                     <span class="form__label">Загрузить фото</span>
                     <div class="form__field-group">
-                        <label for="{{ form.photo.id_for_label }}" class="form__file-button">Выбрать файл</label>
-                        <input type="file" name="{{ form.photo.name }}" id="{{ form.photo.id_for_label }}" class="form__file">
+                        {{ form.photo }}
                         <span class="form__error">{{ form.photo.errors }}</span>
                     </div>
                 </div>
@@ -109,5 +108,5 @@
     <script type="text/javascript" src={% static "js/utils/debouncing.js" %}></script>
 
     <script type="text/javascript" src={% static "js/api/Api.js" %}></script>
-    <script type="text/javascript" src={% static "Js/formRecipe.js" %}></script>
+    <script type="text/javascript" src={% static "js/formRecipe.js" %}></script>
 {% endblock %}

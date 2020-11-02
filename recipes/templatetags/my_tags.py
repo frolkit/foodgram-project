@@ -25,7 +25,8 @@ def check_purchase(recipe, user):
 
 @register.filter()
 def check_subcribe(user, following):
-    subscribe = Subscribe.objects.filter(user=user.id, following=following.id).exists()
+    subscribe = Subscribe.objects.filter(
+        user=user.id, following=following.id).exists()
     return subscribe
 
 
@@ -71,4 +72,3 @@ def generate_page_url(context, **kwargs):
     for k in [k for k, v in query.items() if not v]:
         del query[k]
     return query.urlencode()
-

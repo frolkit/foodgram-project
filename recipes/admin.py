@@ -4,13 +4,13 @@ from .models import Recipe, Ingredient, Tag, IngredientInRecipe
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    list_display = ("pk", "name", "author")
-    list_filter = ("author", 'name', 'tags')
+    list_display = ("pk", "title", "author")
+    list_filter = ("author", 'title', 'tags')
 
 
 class IngredientAdmin(admin.ModelAdmin):
-    list_display = ("pk", "name", "dimension")
-    list_filter = ("name",)
+    list_display = ("pk", "title", "dimension")
+    list_filter = ("title",)
 
 
 class IngredientInRecipeAdmin(admin.ModelAdmin):
@@ -18,7 +18,7 @@ class IngredientInRecipeAdmin(admin.ModelAdmin):
 
 
 class TagAdmin(admin.ModelAdmin):
-    list_display = ("pk", "name", "value")
+    list_display = ("pk", "title", "value")
 
 
 admin.site.register(Recipe, RecipeAdmin)

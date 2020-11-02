@@ -130,3 +130,6 @@ dmypy.json
 
 .vscode
 static
+media
+postgres_data
+sent_emails/*

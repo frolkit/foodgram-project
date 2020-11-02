@@ -28,7 +28,7 @@
                                     <li class="card-user__item">
                                         <div class="recipe">
                                             <img src={{ recipe.photo.url }} alt="какой-то-текст" class="recipe__image">
-                                            <h3 class="recipe__title">{{ recipe.name }}</h3>
+                                            <h3 class="recipe__title">{{ recipe.title }}</h3>
                                             <p class="recipe__text"><span class="icon-time"></span> {{ recipe.cooking_time }} мин.</p>
                                         </div>
                                     </li>
@@ -65,5 +65,5 @@
     <script type="text/javascript" src={% static "js/components/Header.js" %}></script>
 
     <script type="text/javascript" src={% static "js/api/Api.js" %}></script>
-    <script type="text/javascript" src={% static "Js/myFollow.js" %}></script>
+    <script type="text/javascript" src={% static "js/myFollow.js" %}></script>
 {% endblock %}
