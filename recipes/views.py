@@ -103,15 +103,17 @@ def recipe(request, username, recipe_id):
 def recipe_create(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST, files=request.FILES)
+        tags = request.POST.getlist('tag')
         ing_names = request.POST.getlist('nameIngredient')
         ing_values = request.POST.getlist('valueIngredient')
-        tags = request.POST.getlist('tag')
-        tags = Tag.objects.filter(title__in=tags)
+        if not ing_names:
+            form.add_error(None, "Добавьте ингредиенты")
         if form.is_valid() and ing_names:
             instanse = form.save(commit=False)
             instanse.author = request.user
             instanse.save()
             instanse.tags.clear()
+            tags = Tag.objects.filter(title__in=tags)
             for tag in tags:
                 instanse.tags.add(tag)
             for i in range(len(ing_names)):
@@ -123,7 +125,8 @@ def recipe_create(request):
             instanse.save()
             return redirect("recipe", username=request.user.username,
                             recipe_id=instanse.id)
-        return render(request, 'recipe_create.html', {'form': form})
+        return render(request, 'recipe_create.html', {'form': form,
+                                                      'tags': tags})
     form = RecipeForm()
     return render(request, 'recipe_create.html', {'form': form})
 
@@ -141,12 +144,14 @@ def recipe_edit(request, username, recipe_id):
         ing_names = request.POST.getlist('nameIngredient')
         ing_values = request.POST.getlist('valueIngredient')
         tags = request.POST.getlist('tag')
-        tags = Tag.objects.filter(title__in=tags)
+        if not ing_names:
+            form.add_error(None, "Добавьте ингредиенты")
         if form.is_valid() and ing_names:
             instanse = form.save(commit=False)
             ingredients.delete()
             instanse.save()
             instanse.tags.clear()
+            tags = Tag.objects.filter(title__in=tags)
             for tag in tags:
                 instanse.tags.add(tag)
             for i in range(len(ing_names)):
@@ -161,7 +166,6 @@ def recipe_edit(request, username, recipe_id):
         return render(request,
                       "recipe_create.html",
                       {'form': form,
-                       'ingredients': ingredients,
                        'tags': tags})
     form = RecipeForm(instance=recipe)
     return render(request,

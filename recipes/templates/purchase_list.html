@@ -26,7 +26,9 @@
                     </li>
                 {% endfor %}
             </ul>
-            <a href="{% url 'purchase_list_download' %}"><button class="button button_style_blue">Скачать список</button></a>
+            {% if recipes %}
+                <a href="{% url 'purchase_list_download' %}"><button class="button button_style_blue">Скачать список</button></a>
+            {% endif %}
         </div>
     </main>
 {% endblock %}
