@@ -48,8 +48,8 @@ jobs:
        key: ${{ secrets.SSH_KEY }}
        script: |
          sudo docker pull frolkit/foodgram
-         docker-compose -f /home/user/dev/foodgram/docker-compose.yaml stop
-         docker-compose -f /home/user/dev/foodgram/docker-compose.yaml up
+         sudo docker-compose -f /home/user/dev/foodgram/docker-compose.yaml stop
+         sudo docker-compose -f /home/user/dev/foodgram/docker-compose.yaml up
 
   send_message:
     runs-on: ubuntu-latest
