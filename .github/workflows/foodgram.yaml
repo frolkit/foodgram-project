@@ -57,7 +57,10 @@ jobs:
        script: |
          sudo docker pull frolkit/foodgram:latest
          sudo docker-compose -f /home/user/dev/foodgram/docker-compose.yaml stop
-         sudo docker-compose -f /home/user/dev/foodgram/docker-compose.yaml up
+         sudo docker-compose -f /home/user/dev/foodgram/docker-compose.yaml up -d
+         
+   - name: Image digest
+     run: echo ${{ steps.docker_build.outputs.digest }}
 
   send_message:
     runs-on: ubuntu-latest
