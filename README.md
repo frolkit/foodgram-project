@@ -28,16 +28,22 @@ DB_PORT=5432
 docker-compose up -d
 ```
 
-4. Сервер доступен по 127.0.0.1:80
+4. Сделайте миграции.
+```
+docker-compose exec web python manage.py migrate
+```
+
+5. Сервер доступен по 127.0.0.1:80
 
 ## Настройка приложения.
 
-Настройка https
+1. Создание суперпользователя
+```
+docker-compose exec web python manage.py createsuperuser
+```
 
-Настройка домена
+2. Заполнение базы данных вводными данными
+```
+docker-compose exec web python manage.py loaddata < fixtures.json
+```
 
-Создание суперпользователя
-
-Заполнение базы данных вводными данными
-
-Приложение готово
