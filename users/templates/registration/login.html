@@ -25,6 +25,11 @@
                         </div>
                     </div>
                 {% endfor %}
+
+                {% if form.errors %}
+                    <div class="form__error">{{ form.non_field_errors  }}</div>
+                {% endif %}
+
                 <div class="form__footer">
                     <button class="button button_style_blue">Войти</button>
                     <a href="{% url 'password_reset' %}" class="form__forgot-link">Забыли пароль?</a>
