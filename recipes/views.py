@@ -187,3 +187,11 @@ def page_not_found(request, exception):
 
 def server_error(request):
     return render(request, "500.html", status=500)
+
+
+def about(request):
+    return render(request, "about.html")
+
+
+def tech(request):
+    return render(request, "tech.html")
