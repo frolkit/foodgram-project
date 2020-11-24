@@ -2,7 +2,12 @@
 <div class="card-list">
     {% for recipe in page %}
         <div class="card" data-id={{ recipe.id }}>
-            <a href="{% url 'recipe' recipe.author.username recipe.id %}" class="link" target="_blank"><img src={{ recipe.photo.url }} alt="Какой-то текст" class="card__image"></a>
+            <a href="{% url 'recipe' recipe.author.username recipe.id %}" class="link" target="_blank">
+                {% load thumbnail %}
+                {% thumbnail recipe.photo "450x450" upscale=True as im %}
+                    <img src={{ im.url }}  width="{{ im.width }}" height="{{ im.height }}" alt="Какой-то текст" class="card__image" >
+                {% endthumbnail %}
+            </a>
             <div class="card__body">
                 <a class="card__title link" href="{% url 'recipe' recipe.author.username recipe.id %}" target="_blank">{{ recipe.title }}</a>
                 <ul class="card__items">
