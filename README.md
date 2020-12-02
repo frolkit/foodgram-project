@@ -1,11 +1,11 @@
 ![Foodgram](https://github.com/frolkit/foodgram-project/workflows/Foodgram/badge.svg)
 
-# [Foodgram Project](https://foodgram.frolkit.gq/)
+# [Foodgram Project](https://foodgram.frolkit.ru/)
 Это дипломный проект в Yandex Praktikum. Сайт, на котором пользователи могут оставлять свои рецепты, подписываться на авторов, ставить лайки и формировать список покупок на основе выбранных рецептов. Красивый и интерактивный сайт.
 
 Стек: Django, Python, Docker, PostgreSQL, Nginx, GitHub Actions.
 
-Сайт доступен: https://foodgram.frolkit.gq/
+Сайт доступен: https://foodgram.frolkit.ru/
 
 ## Инструкция по развёртыванию.
 1. Создайте отдельную папку для проекта. Все дальнейшие действия выполняйте из неё.
